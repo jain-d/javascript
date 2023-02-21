@@ -1,0 +1,11 @@
+.container{
+   font-family: Arial, Helvetica, sans-serif;
+   text-align: center;
+}
+.container img{
+    display: block;
+    object-fit: cover;
+    width: 70vw;
+    aspect-ratio: 553/311;
+    margin: 5em auto;
+}
