@@ -7,7 +7,7 @@ data.then((result)=>{
 })
 if(btn){
     btn.addEventListener('click', ()=>{
-        text.innerHTML=chip+bitness+' chip';
+        text.innerHTML=chip+'_'+bitness+' chip';
         console.log(data)
     })
 }
