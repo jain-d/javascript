@@ -209,8 +209,69 @@ let recipeMap = new Map([
 //  console.log(`${key}: ${value}`);
 //});
 
+/*
 let obj1={name:'John Wick', AGE:50}
 let obj1Json=JSON.stringify(obj1);
 console.log(obj1);
 console.log(obj1Json);
-set
+
+*/
+
+//-------------------------------
+/*
+let timerId = setTimeout(function tick() {
+  console.log('tick');
+  timerId = setTimeout(tick, 2000); // (*)
+}, 2000)
+
+
+function tick() {
+  console.log('tick');
+  timerId = setTimeout(tick, 2000); // (*)
+}
+
+let timerId = setTimeout(tick, 2000)
+*/
+//---------------------------------------
+//Promise
+/*
+let promise = new Promise(function(resolve, reject) {
+  setTimeout(()=>{
+    var escVel;
+    escVel=Math.random();
+    escVel*=100;
+    
+    if(escVel>20) {
+      resolve(`Escape velocity achieved ${escVel}`);
+    }
+    else if(escVel===undefined) {
+      reject('Ignition Failed');
+    }
+    else {
+      reject(new Error(`Launch Failed ${escVel}`));
+    }
+},1000)
+})
+
+promise.then((value)=>{
+  console.log(value);
+}).catch((err)=>{
+  console.log(err);
+})
+*/
+//----------------------------
+Promise.all([
+  new Promise(resolve => setTimeout(() => resolve(1), 3000)), // 1
+  new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
+  new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
+]).then(console.log);
+
+//--------------------------------------------------
+
+let loadScriptPromise = function(src) 
+{
+  return new Promise((resolve, reject) => 
+  {
+    loadScript(src, (err, script) => {  if (err) reject(err);  else resolve(script); });
+  });
+};
