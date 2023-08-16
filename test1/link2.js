@@ -260,18 +260,30 @@ promise.then((value)=>{
 })
 */
 //----------------------------
-Promise.all([
-  new Promise(resolve => setTimeout(() => resolve(1), 3000)), // 1
-  new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
-  new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
-]).then(console.log);
+// Promise.all([
+//   new Promise(resolve => setTimeout(() => resolve(1), 3000)), // 1
+//   new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
+//   new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
+// ]).then(console.log);
 
 //--------------------------------------------------
 
-let loadScriptPromise = function(src) 
-{
-  return new Promise((resolve, reject) => 
-  {
-    loadScript(src, (err, script) => {  if (err) reject(err);  else resolve(script); });
-  });
-};
+// let loadScriptPromise = function(src) 
+// {
+//   return new Promise((resolve, reject) => 
+//   {
+//     loadScript(src, (err, script) => {  if (err) reject(err);  else resolve(script); });
+//   });
+// };
+
+//----------------------------------
+
+// let ticker=0;
+// let twitter = setInterval(()=>{
+//   console.log(ticker);
+  
+//   if(ticker===10){
+//     clearInterval(twitter);
+//   }
+//   ticker+=1;
+// }, 200);
