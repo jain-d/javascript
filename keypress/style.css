@@ -1,0 +1,12 @@
+html, button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+.container {
+    width: 100%;
+    padding-top: 10%;
+    text-align: center;
+}
+.pretext {
+    font-size: smaller;
+}
