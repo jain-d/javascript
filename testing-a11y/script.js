@@ -4,33 +4,33 @@ links = Array.from(links);
 let currentIndex;
 for (let link of links) {
     link.addEventListener('focus', ()=>{
-        console.log(links.indexOf(link));
+        let count = links.length-1;
         link.addEventListener('keydown', (event) => {
             let key = event.key;
+            let subsequent;
             currentIndex = links.indexOf(link);
-
-            if (key === 'ArrowUp') {
-                if (currentIndex > 0) {
-                    currentIndex = currentIndex - 1;
-                    console.log(currentIndex);
-                }
-                else {
-                    currentIndex = -(currentIndex - --(links.length));
-                    console.log(currentIndex);
-                }
+            if(key === 'ArrowUp' || key === 'ArrowDown') {
                 
-            }
-            else if (key === 'ArrowDown') {
-                if ( currentIndex < --(links.length)) {
-                    currentIndex = currentIndex + 1;
-                    console.log(currentIndex);
+                if (key === 'ArrowUp') {
+                    if(currentIndex === 0)
+                    {
+                        subsequent = count;
+                    }
+                    else {
+                        subsequent = currentIndex - 1;
+                    }
                 }
-                else {
-                    currentIndex = currentIndex - --(links.length);
-                    console.log(currentIndex);
+                else if (key === 'ArrowDown') {
+                    if(currentIndex === count) {
+                        subsequent = currentIndex - count;
+                    }
+                    else {
+                        subsequent = currentIndex + 1;
+                    }
+
                 }
+                links[subsequent].focus();
             }
-            links[currentIndex].focus();
         })
     })  
 }
