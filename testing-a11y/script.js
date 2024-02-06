@@ -1,36 +1,19 @@
-let target = document.getElementsByClassName("social")[0];
-let links = target.querySelectorAll('a');
-links = Array.from(links);
-let currentIndex;
-for (let link of links) {
-    link.addEventListener('focus', ()=>{
-        let count = links.length-1;
-        link.addEventListener('keydown', (event) => {
-            let key = event.key;
-            let subsequent;
-            currentIndex = links.indexOf(link);
-            if(key === 'ArrowUp' || key === 'ArrowDown') {
-                
-                if (key === 'ArrowUp') {
-                    if(currentIndex === 0)
-                    {
-                        subsequent = count;
-                    }
-                    else {
-                        subsequent = currentIndex - 1;
-                    }
-                }
-                else if (key === 'ArrowDown') {
-                    if(currentIndex === count) {
-                        subsequent = currentIndex - count;
-                    }
-                    else {
-                        subsequent = currentIndex + 1;
-                    }
+let image = document.querySelector('.image');
+let switchButton = document.querySelector('.switch');
+let createLSI = document.querySelector('.test');
+let theme = 'theme';
 
-                }
-                links[subsequent].focus();
-            }
-        })
-    })  
-}
+localStorage.setItem(theme, 'special');
+
+switchButton.addEventListener('click', () => {
+  let dataSrc = image.getAttribute("data-src");
+  image.setAttribute("src", dataSrc) 
+});
+
+createLSI.addEventListener('click', () => {
+  if (localStorage.getItem(theme) === "normal") 
+    console.log('works as expected');
+
+  else
+    console.log('something\'s wrong');
+});

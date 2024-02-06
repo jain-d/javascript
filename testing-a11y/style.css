@@ -7,3 +7,8 @@ body {
     background-color: lightpink;
     padding: 10% 40%;
 }
+img {
+  width: 450px;
+  height: auto;
+  transform: translateX(-125px);
+}
