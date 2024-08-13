@@ -1,0 +1,42 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    color: #ffffff;
+    background-color: #333333; 
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    color: #000000;
+    background-color: #fadeb0;
+  }
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.node {
+  margin: 50px;
+  padding: 25px;
+  border: 3px dashed white;
+  border-top-color: orange;
+  border-bottom-color: lightgreen;
+}
+.button-group-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.button-container {
+  text-align: center;
+  button {
+    font-family: inherit;
+    font-size: larger;
+    margin: 10px;
+    padding: 10px;
+  }
+}
