@@ -35,14 +35,12 @@ console.log(`${sampleString.replaceAll("Bond", "Jules")}`);
 let generatedArray = "Still Wakes the Deep".split(" ");
 console.log(generatedArray);
 
-
 // TOUPPERCASE & TOLOWERCASE, 
 console.log(sampleString.toUpperCase());
 console.log(sampleString.toLowerCase());
 
 // INCLUDES, returns a boolean value based on the presence of the given character. 
 console.log(`is , present in the sentence? ${sampleString.includes(",")}`);
-
 
 // INDEXOF, give the first index of the perticular character if present in string, if it is not present -1 is returned
 console.log(`first occurance of "n" is at index- ${sampleString.indexOf("n")}`);

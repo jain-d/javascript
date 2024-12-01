@@ -13,5 +13,16 @@ console.log(testArray.at(-1));
 let testJoin = testArray.join(" ");
 console.log(`'${testJoin}'`);
 
-// PUSH, added an element to the end of the Array.
+// PUSH, added the specified element to the end of the Array and return the total new Length
 
+
+// POP, removes an element from the end, and returns it
+
+
+// SHIFT, removes the first element of the array and returns it
+console.log(testArray.shift());
+console.log(testArray);
+
+// UNSHIFT, add the specified element to the start of the arrray and returns the new lenght
+console.log(testArray.unshift("the"));
+console.log(testArray);
