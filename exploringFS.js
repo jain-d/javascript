@@ -10,3 +10,11 @@ fs.readFile('./test.txt', 'utf8', (err, contents) => {
    console.log(testArray);
    console.log(contentArray.length);
 })
+
+let fileContents = Bun.file("./car.json");
+
+let cleansedContents = await fileContents.json();
+
+for (let content of cleansedContents) {
+   console.log(content.name);
+}

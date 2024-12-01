@@ -1,0 +1,42 @@
+@media (prefers-color-scheme: dark) {
+   :root {
+      color-scheme: dark;
+      color: #ffffff;
+      background-color: #333333;
+   }
+}
+@media (prefers-color-scheme: light) {
+   :root {
+      color-scheme: light;
+      color: #000000;
+      background-color: #fadeb0;
+   }
+}
+body >:not(h1, h2, h3) {
+   font-size: x-large;
+}
+.cards {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 15px;
+
+   & .card {
+      padding: 10px;
+      border: 1px solid gray;
+      max-width: 500px;
+      & p {
+         color: darkgrey;
+      }
+   }
+}
+
+button.likes {
+   cursor: pointer;
+   color: indianred;
+   font-size: larger;
+   background: transparent;
+   border: none;
+   & sup {
+      color: white;
+   }
+}
