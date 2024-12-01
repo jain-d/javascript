@@ -40,5 +40,23 @@ console.log(generatedArray);
 console.log(sampleString.toUpperCase());
 console.log(sampleString.toLowerCase());
 
-// Searching an array, https://www.w3schools.com/js/js_string_search.asp/
+// INCLUDES, returns a boolean value based on the presence of the given character. 
+console.log(`is , present in the sentence? ${sampleString.includes(",")}`);
 
+
+// INDEXOF, give the first index of the perticular character if present in string, if it is not present -1 is returned
+console.log(`first occurance of "n" is at index- ${sampleString.indexOf("n")}`);
+//Can also start from a perticular index
+console.log(`first occurance of "n" after index 5 ${sampleString.indexOf("n", 5)}`);
+
+// LASTINDEXOF, give the last index of the give character, if absent returns -1
+console.log(`last occurance of "n" is at index- ${sampleString.lastIndexOf("n")}`);
+
+// SEARCH, similar to indexOf, it return the index of the given seach character, but can also utilize regular expression
+console.log(`last occurance of "d" is at index- ${sampleString.search("d")}`);
+
+// startsWith, returns a Boolean if a string starts with the give character
+console.log(`does the string starts with "Bond"? ${sampleString.startsWith("Bond")}`);
+
+// endsWith, returns a Boolean if a string ends with the give character
+console.log(`does the string ends with "Sparrow"? ${sampleString.endsWith("Sparrow")}`);
