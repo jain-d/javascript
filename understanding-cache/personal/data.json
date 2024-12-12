@@ -1,0 +1,32 @@
+[
+   {
+      "objectId": 4,
+      "turn": "even",
+      "name": "Justin"
+   },
+   {
+      "objectId": 1,
+      "turn": "odd",
+      "name": "Adam"
+   },
+   {
+      "objectId": 3,
+      "turn": "odd",
+      "name": "Alex"
+   },
+   {
+      "objectId": 2,
+      "turn": "even",
+      "name": "Walter"
+   },
+   {
+      "objectId": 5,
+      "turn": "odd",
+      "name": "Aston"
+   },
+   {
+      "objectId": 6,
+      "turn": "even",
+      "name": "Michael"
+   }
+]
