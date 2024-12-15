@@ -1,5 +1,4 @@
 #! /home/jain-d/.bun/bin/bun
-import {c} from "../../colors.js";
 
 let cacheStats = {
    hits: 0,          // Times data was found in cache
