@@ -1,17 +1,14 @@
 #! /home/jain-d/.bun/bin/bun
 import {c} from "../../colors.js";
-console.log(`this is the internal processing, the backend.`);
 
 let cacheStats = {
-    hits: 0,          // Times data was found in cache
-    misses: 0,        // Times data had to be fetched from source
-    hitLatency: [],   // Response times for cache hits
-    missLatency: [],  // Response times for cache misses
+   hits: 0,          // Times data was found in cache
+   misses: 0,        // Times data had to be fetched from source
+   hitLatency: [],   // Response times for cache hits
+   missLatency: []  // Response times for cache misses
 }
 
 let cache = new Map();
-let hardLimit;
-let accessBased;
 async function fetchData(id) {
    let file = Bun.file("./data.json");
    let rawData = await file.json();
@@ -23,45 +20,58 @@ async function fetchData(id) {
       for (let i of id) {
          individuals.push(rawData.find(entry => entry.objectId === i));
       }
+      return individuals;
    }
-   return individuals;
 }
-function cacheInvalidation(id) {
-   hardLimit = setTimeout(()=>{ 
+
+function timeBasedExpiration(id) {
+   setTimeout(() => { 
       cache.delete(id);
    }, 15e3);
-   accessBased = setTimeout(()=>{ 
-      cache.delete(id);
-      clearTimeout(hardLimit);
-   }, 10e3);
 }
-/*
-async function getIndividualsByIds(id) {
-}
-*/
+
 async function getIndividualById(id) {
-   if (cache.get(id)) {
+   if (cache.has(id)) {
+      clearTimeout(cache.get(id).trigger);
       cacheStats.hits++;
-      console.log(`cache hit by ${c.green}${cacheStats.hits}${c.reset}`);
-      clearTimeout(accessBased);
-      return cache.get(id);
+      return cache.get(id).data;
    }
    cacheStats.misses++;
-   console.log(`cache missed by ${c.red}${cacheStats.misses}${c.reset}`)
-   cache.set(id, await fetchData(id));
-   cacheInvalidation(id);
-   return cache.get(id);
+   cache.set(id, {data: await fetchData(id), value: id, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)}});
+   cache.get(id).accessBasedExpiry();
+   timeBasedExpiration(id);                                                     //   <==  we have start the time based cache invalidation here
+   return cache.get(id).data;
 }
-let index = 0;
-let int = setInterval(async () => { 
-      if (index % 2 == 0) {
-         console.log(await getIndividualById(3)); 
+
+async function getIndividualsByIds(ids) {
+   let assortedData = [];
+   let uncachedEntries = [];
+   ids.forEach(id => {
+      if (cache.has(id)) {
+         clearTimeout(cache.get(id).trigger);
+         cacheStats.hits++;
+         assortedData.push(cache.get(id).data);
       } else {
-         console.log(await getIndividualById(4));
+         uncachedEntries.push(id);
+         cacheStats.misses++;
       }
-      index++;
-   if (index === 20) {
-      console.log("sayonara");
-      clearInterval(int);
+   });
+   if (uncachedEntries.length) {
+      let fetched = await fetchData(uncachedEntries);
+      fetched.forEach(datum => {
+         cache.set(datum.objectId, {data: datum, value: datum.objectId, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)}});
+         cache.get(datum.objectId).accessBasedExpiry();
+         timeBasedExpiration(datum.objectId);                                                     //   <==  we have start the time based cache invalidation here
+         assortedData.push(datum);
+      })
    }
-}, 3e3);
+   return assortedData;
+}
+
+function clearCacheForId(id) {
+   cache.delete(id);
+}
+
+function clearCache() {
+   cache.clear();
+}
