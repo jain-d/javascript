@@ -34,6 +34,7 @@ function removeNode() {
     count -= 1; 
   }
   else {
-    console.log('Sorry, Ned Stark is nowhere to be found');
+   alert("No more nodes present to remove");
+   console.log('No more nodes present to remove');
   }
 }
