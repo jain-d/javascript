@@ -22,3 +22,20 @@ monkey = false || 0 || "";                   // <-- this is where we go all the 
 monkey = 0 ?? true ?? "banana";              // <-- this will return 0 as the value because that the first value that is neither null nor undefined.
 monkey = null ?? false ?? "banana";          // <-- this will return false as the value and the operator will short-circuit here.
 monkey = null ?? undefined ?? null;          // <-- now here, the operator is looking for a value that is neither null nor undefined, but since it can not find it, it will return the last value it checked, which is null here.
+
+
+
+// SPREAD Operator ...
+/* Spread Operator is used to unpack the individual values of an iterable, and present them where zero or more individual values are needed.  */ 
+let values = [3, 4];
+
+const AddValues = (a, b) => a + b;
+
+AddValues(...values);                        // <-- here, for the function AddValues, which takes two values, we pass the array by unpacking it values
+
+
+// DESTRUCTURING
+/* This is the process of unpacking values from an iterable and storing them directly into variables */
+let fullName = ["John", "Wick"];
+let [ firstName, lastName ] = fullName;      // <-- now in the variables firstName is stored "John" and "Wick" in lastName
+
