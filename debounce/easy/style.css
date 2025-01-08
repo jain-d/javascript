@@ -1,0 +1,37 @@
+@media (prefers-color-scheme: dark) {
+   :root {
+      color-scheme: dark;
+      color: #ffffff;
+      background-color: #333333;
+   }
+}
+@media (prefers-color-scheme: light) {
+   :root {
+      color-scheme: light;
+      color: #000000;
+      background-color: #fadeb0;
+   }
+}
+body >:not(h1, h2, h3) {
+   font-size: x-large;
+}
+
+.main {
+   text-align: center;
+   & span {
+      font-size: xxx-large;
+      color: bisque;
+      margin: 0 20px;
+      min-width: 100px;
+      display: inline-block;
+   }
+   & button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: xx-large;
+   }
+   & button:hover {
+      color: darkgray;
+   }
+}
