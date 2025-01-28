@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Dates</title>
+      <style>
+         @media (prefers-color-scheme: dark) {
+            :root {
+               color-scheme: dark;
+               color: #ffffff;
+               background-color: #333333;
+            }
+         }
+         @media (prefers-color-scheme: light) {
+            :root {
+               color-scheme: light;
+               color: #000000;
+               background-color: #fadeb0;
+            }
+         }
+         body >:not(h1, h2, h3) {
+            font-size: x-large;
+         }
+         .main {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+         }
+      </style>
+      <script src="./dates.js" defer></script>
+   </head>
+   <body>
+      <div class="main">
+         <span class="date"></span>
+         <span class="exp"></span>
+      </div>  
+   </body>
+</html>

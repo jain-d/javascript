@@ -36,7 +36,7 @@ async function getIndividualById(id) {
       return cache.get(id).data;
    }
    cacheStats.misses++;
-   cache.set(id, {data: await fetchData(id), value: id, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)}});
+   cache.set(id, { data: await fetchData(id), value: id, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)} });
    cache.get(id).accessBasedExpiry();
    timeBasedExpiration(id);                                                     //   <==  we have start the time based cache invalidation here
    return cache.get(id).data;

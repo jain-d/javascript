@@ -8,7 +8,6 @@ timerView.innerText = timerValue;
 startButton.addEventListener("click", () => {
    timerRange = +(inputField.value);
    initiateTimer();
-   setTimeout(function(){console.log("done")}, 1000);
 });
 function initiateTimer() {
    let timer = setInterval(function(){
