@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Template</title>
+      <link href="./style.css" rel="stylesheet">
+      <script src="./script.js" async></script>
+   </head>
+   <body>
+      <h1>Driver's License Application Form</h1>   
+      <form>
+         <fieldset class="name">
+            <legend>Name</legend>
+            <input type="text" name="first" placeholder="First" accesskey="i" required/>
+            <input type="text" name="middle" placeholder="Middle"/>
+            <input type="text" name="last" placeholder="Last" required/>
+         </fieldset>
+         <fieldset class="age">
+            <legend>DoB</legend>
+            <input type="date" name="DoB"/>
+         </fieldset>
+         <fieldset>
+            <legend>Email</legend>
+            <input type="email" name="email" placeholder="mail@example.com"/>
+         </fieldset>
+         <div>
+            <button type="submit" accesskey="s">Send</button>
+            <button type="reset">Reset</button>
+         </div>
+      </form>
+      <div class="test">
+         <button class="add-sets">Add sets</button>
+         <fieldset class="outside">
+            <legend>Test</legend>
+            <div class="set">
+               <label>Head</label>
+               <input type="text" placeholder="this is where we enter a sentence"/>
+            </div>
+         </fieldset>
+      </div>
+   </body>
+</html>

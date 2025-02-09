@@ -1,0 +1,73 @@
+@media (prefers-color-scheme: dark) {
+   :root {
+      color-scheme: dark;
+      color: #ffffff;
+      background-color: #333333;
+   }
+}
+@media (prefers-color-scheme: light) {
+   :root {
+      color-scheme: light;
+      color: #000000;
+      background-color: #fadeb0;
+   }
+}
+body >:not(h1, h2, h3) {
+   font-size: x-large;
+}
+form {
+   width: 70%;
+   min-width: 500px;
+   margin: 0 auto;
+   border: 1px dashed red;
+   padding: 50px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   & .name {
+      display: flex;
+      gap: 15px;
+      justify-content: space-between;
+   }
+   & input {
+      font-size: x-large;
+   }
+   & .age {
+      & input {
+         min-width: 260px;
+      }
+   }
+   button {
+      cursor: pointer;
+      max-width: 100px;
+   }
+}
+@media (max-width: 550px) {
+   form {
+      & .name {
+         flex-direction: column;
+      }
+   }
+}
+.test {
+   padding: 30px;
+   display: flex;
+   width: 65%;
+   margin: 50px auto 0 auto;
+   flex-direction: column;
+   gap: 50px;
+   
+   & .add-sets {
+      font-size: x-large;
+      width: fit-content;
+   }
+}
+
+.set {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   & input {
+      font-size: large;
+   }
+}
