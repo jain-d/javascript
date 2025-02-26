@@ -55,3 +55,5 @@ addEventListener("click", aCallback);
 // THIS in ARROW FUNCTIONS
 // for arrow functions, the value of THIS is obtained from the LEXICAL SCOPE that it is defined in. Not the call site, but the LEXICAL SCOPE.
 // And again, object literals do not have their own lexical scopes.
+//
+// more info can be found here on this claude chat -> https://claude.ai/share/4a997821-5828-483c-af48-5aed2800086f
