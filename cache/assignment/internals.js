@@ -8,6 +8,8 @@ let cacheStats = {
 }
 
 let cache = new Map();
+
+// Actual data fetching happens here
 async function fetchData(id) {
    let file = Bun.file("./data.json");
    let rawData = await file.json();
@@ -23,6 +25,7 @@ async function fetchData(id) {
    }
 }
 
+// Time based cache expiration
 function timeBasedExpiration(id) {
    setTimeout(() => { 
       cache.delete(id);
@@ -36,7 +39,16 @@ async function getIndividualById(id) {
       return cache.get(id).data;
    }
    cacheStats.misses++;
-   cache.set(id, { data: await fetchData(id), value: id, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)} });
+
+   cache.set(id, {
+      data: await fetchData(id),
+      value: id,
+      trigger: "",
+      accessBasedExpiry: function() {
+         this.trigger = setTimeout(() => cache.delete(this.value), 10e3)
+      }
+   });
+
    cache.get(id).accessBasedExpiry();
    timeBasedExpiration(id);                                                     //   <==  we have start the time based cache invalidation here
    return cache.get(id).data;
@@ -58,7 +70,14 @@ async function getIndividualsByIds(ids) {
    if (uncachedEntries.length) {
       let fetched = await fetchData(uncachedEntries);
       fetched.forEach(datum => {
-         cache.set(datum.objectId, {data: datum, value: datum.objectId, trigger: "", accessBasedExpiry: function(){this.trigger = setTimeout(() => {cache.delete(this.value);}, 10e3)}});
+         cache.set(datum.objectId, {
+            data: datum,
+            value: datum.objectId,
+            trigger: "",
+            accessBasedExpiry: function() {
+               this.trigger = setTimeout(() => cache.delete(this.value), 10e3)
+            }
+         });
          cache.get(datum.objectId).accessBasedExpiry();
          timeBasedExpiration(datum.objectId);                                                     //   <==  we have start the time based cache invalidation here
          assortedData.push(datum);
