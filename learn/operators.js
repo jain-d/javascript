@@ -28,10 +28,18 @@ monkey = null ?? undefined ?? null;          // <-- now here, the operator is lo
 // SPREAD Operator ...
 /* Spread Operator is used to unpack the individual values of an iterable, and present them where zero or more individual values are needed.  */ 
 let values = [3, 4];
-
 const AddValues = (a, b) => a + b;
 
 AddValues(...values);                        // <-- here, for the function AddValues, which takes two values, we pass the array by unpacking it values
+
+let largerArray = [1, 2, ...values, 5];         // [1, 2, 3, 4, 5]
+
+// REST Operator ...
+/* Rest operator that looks exactly like the spread operator, is used to condense multiple values into an array */
+const addAllValues = (...values) => { let sum = 0; for (let value of values) {sum += value;} return sum; };
+
+console.log(addAllValues(2, 3));
+console.log(addAllValues(5, 6, 7, 8));
 
 
 // DESTRUCTURING
@@ -39,3 +47,8 @@ AddValues(...values);                        // <-- here, for the function AddVa
 let fullName = ["John", "Wick"];
 let [ firstName, lastName ] = fullName;      // <-- now in the variables firstName is stored "John" and "Wick" in lastName
 
+let testObject = {
+   name: "John",
+   age: 45
+}
+let { name } = testObject;

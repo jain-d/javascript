@@ -22,4 +22,10 @@ regex = /\s/g;
 searchPattern = searchPattern.replace(regex, "");
 console.log(searchPattern);
 
-// 
+// for taking care of a range of numbers/alphabets, we enclose them in square brackets.
+"2e4".replace(/[0-9]/, "");      // `e4`      // this will replace 2, which is the first character for this string
+
+// if we add a plus after a + symbol after the character, or range of character, all of those instances directly followed by the first instance will be replaced too.
+"23e4".replace(/[0-9]+/, "");               // `e4`, it is kind of like /../g, but for consecutive characters only
+
+
