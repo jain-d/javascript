@@ -17,7 +17,7 @@ function createEntry(entry, entryName) {
 createEntry(4, "four");
 processMap.get(4).expiry();
 
-setInterval(()=>{
+setInterval(() => {
    processMap.forEach((value, key) => {
       if ((value.added - (new Date())) >= 15e3) {
          processMap.delete(key);
