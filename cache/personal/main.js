@@ -2,7 +2,7 @@
 // Let's implement cache here
 // Our Cache was supposed to do one thing, we should read data from the json file and process from only once only untill the cache expires
 // Untill the cache expires, we should always use the cache function wrapper, it is then Cache wrapper function's reponsiblity to hydrate
-import {c} from "../colors.js";
+import {c} from "../../colors.js";
 let cache = {
    data: null,
    duration: null
