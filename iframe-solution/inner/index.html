@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Creator</title>
+      <style>
+         body {
+            color: white;
+            background-color: #333333;
+            color-scheme: dark;
+            font-family: 'Trebuchet MS';
+            font-size: larger;
+         }
+         button, input {
+            font-size: larger;
+            font-family: 'Trebuchet MS';
+         }
+         .send {
+            border: none;
+            background: none;
+            cursor: pointer;
+         }
+         .send:hover {
+            color: deepskyblue;
+         }
+         .send:active {
+            color: steelblue;
+         }
+         li {
+            list-style: none;
+            list-style-type: none;
+         }
+         .click-transporters {
+            margin: 20px 0;
+         }
+      </style>
+      <script src="./script.js" defer></script>
+   </head>
+   <body>
+      <h1>This is the creator</h1>
+      <div class="click-transporters">
+      <button class="height-button">sendHeight</button>
+      <button class="click-button">sendClick</button>
+      </div>
+      <input class="message" type="text" />
+      <button class="send">&#10140;</button>
+      <ol class="messages"></ol>
+   </body>
+</html>

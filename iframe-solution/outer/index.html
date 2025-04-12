@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>TestServer</title>
+      <style>
+         body {
+            color: white;
+            background-color: #333333;
+            color-scheme: dark;
+            font-family: 'Trebuchet MS';
+            font-size: larger;
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+         }
+         button, input {
+            font-size: larger;
+         }
+         .send {
+            border: none;
+            background: none;
+            cursor: pointer;
+         }
+         .send:hover {
+            color: darkgray;
+         }
+         .send:active {
+            color: grey;
+         }
+         iframe {
+            width: 50%;
+            height: full;
+            border: none;
+         }
+         li {
+            list-style: none;
+            list-style-type: none;
+         }
+      </style>
+      <script src="./script.js" defer></script>
+   </head>
+   <body>
+      <div>
+         <h1>was up homie, I am tony</h1>
+         <input class="message" type="text" />
+         <button class="send">&#10140;</button>
+         <ol class="messages"></ol>
+      </div>
+      <iframe src="http://localhost:6969"></iframe>
+   </body>
+</html>
