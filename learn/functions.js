@@ -27,13 +27,14 @@ addEventListener("click", aCallback);
 
 
 // LEXICAL SCOPING
-// As mostly understood, a function, arrow or traditional has create a lexical scope of its own.
+// As commonly understood, a scope is defined, and in is limited within, curly braces { }.
+// Functions, arrow or traditional, create lexical scope of their own.
 // Futher, loops, if - else block and try - catch block create their lexical scope of their own as well.
 // Class Bodies, for most cases, create their own lexical scope.
 
 // But
 
-// Object literals DO NOT create lexical scope. With their use of curly braces, it might look like they have a lexical scope, but don't.
+// Object literals **DO NOT** create lexical scope. With their use of curly braces, it might look like they have a lexical scope, but they don't.
 // Again, object declarations even though are wrapped in a {}, they DO NOT CREATE their own lexical scope.
 
 // Now
@@ -41,7 +42,7 @@ addEventListener("click", aCallback);
 // THIS KEYWORD
 // In a non pedantic manner, consider this as an object tracker or pointer. Where ever used in an execution context, it kind of say which object should I look at to grab this particular property. If the object it uses to find this property, and that object does not have that property, we get undefined.
 // this is an object tracker.
-// the value of this is available at all times in a javascript code, the only matter is where is this at that point of time, pointing to.
+// the value of this is available at all times in a javascript code, the only difference is where is `this` at that point of time, pointing to.
 
 
 // THIS in TRADITIONAL FUNCTIIONS
@@ -52,7 +53,8 @@ addEventListener("click", aCallback);
 
 
 // THIS in ARROW FUNCTIONS
-// for arrow functions, the value of THIS is obtained from the LEXICAL SCOPE that it is defined in. Not the call site, but the LEXICAL SCOPE.
+// for arrow functions, the value of THIS is obtained from the LEXICAL SCOPE that it is defined in.
+// **NOT** the call site, but the LEXICAL SCOPE.
 // And again, object literals do not have their own lexical scopes.
 //
 // more info can be found here on this claude chat ->  https://claude.ai/share/da3658a4-fcb3-497f-8bbc-439cf1d7e753
@@ -106,7 +108,7 @@ let forthObj = {
 
 forthObj.testFunction();               // Output, "undefined is undefined years old", because the arrow function does not get the value of this from the CALL SITE
 
-// Arrow functions gets their value of this from the lexical scope they were defined in
+// Arrow functions gets their value of `this` from the lexical scope they were defined in
 
 // But wait, the arrow function was defined inside of the object, so then WHY did it NOT fetch the value from there? 🤔
 // This is because objects literal are enclosed in {} but they do not create a lexical scope of their own. 🤯
